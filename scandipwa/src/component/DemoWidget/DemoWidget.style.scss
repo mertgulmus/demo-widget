@@ -1,0 +1,12 @@
+.DemoWidget {
+    display: flex;
+    max-height: 500px;
+
+    &_layout_column {
+        flex-direction: column;
+    }
+
+    &-Image {
+        object-fit: contain;
+    }
+}

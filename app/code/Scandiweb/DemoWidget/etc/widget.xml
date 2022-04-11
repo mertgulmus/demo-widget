@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="DemoWidget" class="Scandiweb\DemoWidget\Block\Widget\Demo">
+        <label translate="true">Image Choosing Widget PWA</label>
+        <description translate="true">Widget that lets you choose and insert an image with PWA</description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="true" visible="true" sort_order="10">
+                <label translate="true">Image Title</label>
+            </parameter>
+            <parameter name="layout" xsi:type="select" visible="true" required="true" sort_order="20">
+                <label translate="true">Layout</label>
+                <options>
+                    <option name="column" value="column" selected="true">
+                        <label>Column</label>
+                    </option>
+                    <option name="row" value="row">
+                        <label>Row</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="image" xsi:type="block" required="true" visible="true" sort_order="30">
+                <label translate="true">Image</label>
+                    <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\ImageChooser">
+                        <data>
+                            <item name="button" xsi:type="array">
+                                    <item name="open" xsi:type="string">Choose Image...</item>
+                            </item>
+                        </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
