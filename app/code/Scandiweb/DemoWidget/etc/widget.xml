@@ -2,8 +2,8 @@
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
     <widget id="DemoWidget" class="Scandiweb\DemoWidget\Block\Widget\Demo">
-        <label translate="true">Image Choosing Widget PWA</label>
-        <description translate="true">Widget that lets you choose and insert an image with PWA</description>
+        <label translate="true">Demo Widget</label>
+        <description translate="true">Demo widget that lets you choose and insert an image with PWA</description>
         <parameters>
             <parameter name="title" xsi:type="text" required="true" visible="true" sort_order="10">
                 <label translate="true">Image Title</label>

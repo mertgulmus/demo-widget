@@ -1,12 +1,21 @@
+/**
+ * @category  ScandiPWA
+ * @author    Mert Gulmus <mert.gulmus@scandiweb.com | info@scandiweb.com>
+ * @author    Arturs Strucinskis <arturs.strucinskis@scandiweb.com | info@scandiweb.com>
+ * @license   http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0 (OSL-3.0)
+ * @copyright Copyright (c) 2022 Scandiweb, Inc (https://scandiweb.com)
+ */
 import PropTypes from 'prop-types';
 import { PureComponent } from 'react';
 
-import './DemoWidget.style';
-import { EXAMPLE_CONST } from './DemoWidget.config';
+import { EXAMPLE_CONST } from './DemoWidget.config'; // import constants
 
-/** @namespace Scandipwa/Component/DemoWidget/Component/DemoWidgetComponent */
+import './DemoWidget.style'; // import your styles
+
+/** @namespace DemoWidget/Component/DemoWidget/Component/DemoWidgetComponent */
 export class DemoWidgetComponent extends PureComponent {
     static propTypes = {
+        // define your props here
         title: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,
         layout: PropTypes.string.isRequired
@@ -27,9 +36,11 @@ export class DemoWidgetComponent extends PureComponent {
     }
 
     render() {
+        // rendering logic
         const { layout } = this.props;
         return (
             <div block="DemoWidget" mods={ { layout } }>
+                <p> { EXAMPLE_CONST } </p>
                 { this.renderTitle() }
                 { this.renderImage() }
             </div>

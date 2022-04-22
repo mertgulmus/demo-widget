@@ -1,6 +1,14 @@
 # Demo Widget ScandiPWA Extension
 
-This extension lets you use the Demo Widget, without making any code changes. 
+This extension lets you use the Demo Widget, without making any code changes.
+
+## Authors
+* Mert Gulmus (mert.gulmus@scandiweb.com) *feel free to reach out*
+* Artūrs Strucinskis (arturs.strucinskis@scandiweb.com)
+
+
+## About ScandiPWA support
+If your ScandiPWA version doesn't support using packages, you need to add the widget in ```root/scandipwa/src/component/WidgetFactory/WidgetFactory.component.js``` as we added in the WidgetFactory plugin file. Then you need to copy ```root/scandipwa/packages/demo-widget/src/component/DemoWidget``` folder into ```root/scandipwa/src/component``` folder. If you corrected all pathways, it should work without any problems.
 
 ## How to install
 * Download this repository
@@ -11,7 +19,7 @@ This extension lets you use the Demo Widget, without making any code changes.
     "@scandipwa/demo-widget": "file:packages/demo-widget"
 }
 ```
-* Run ```npm install``` on ```root/scandipwa``` folder
+* Run ```cd scandipwa && npm install``` on root folder
 * After successful installation, make sure the package is enabled in ```root/scandipwa/package.json```'s ```extensions``` section
 ```
 "extensions": {
@@ -21,7 +29,7 @@ This extension lets you use the Demo Widget, without making any code changes.
 * Run ```yarn cli``` or ```npm run cli``` on the root folder to access Magento CLI
 * Inside CLI, run ```magento setup:upgrade``` to start widget's creation script
 * Check if ```Scandiweb_DemoWidget``` module is enabled in ```root/app/etc/config.php```
-* After setup is completed, you should be able to see the widget in Magento admin panel.
+* After setup is completed, you should be able to see the widget in Magento admin panel (*Widget's name is Demo Widget*).
 * You can use the widget
 
 
@@ -29,7 +37,7 @@ This extension lets you use the Demo Widget, without making any code changes.
 
 ### ScandiPWA FE
 
-You can find the widget's front-end files in ```root/scandipwa/src/component/DemoWidget``` folder.
+You can find the widget's front-end files in ```root/scandipwa/packages/demo-widget/src/component/DemoWidget``` folder.
 
 
 ### Magento BE
