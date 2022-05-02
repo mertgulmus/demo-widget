@@ -8,9 +8,7 @@
 import PropTypes from 'prop-types';
 import { PureComponent } from 'react';
 
-import { EXAMPLE_CONST } from './DemoWidget.config'; // import constants
-
-import './DemoWidget.style'; // import your styles
+import './DemoWidget.style';
 
 /** @namespace DemoWidget/Component/DemoWidget/Component/DemoWidgetComponent */
 export class DemoWidgetComponent extends PureComponent {
@@ -36,7 +34,6 @@ export class DemoWidgetComponent extends PureComponent {
     }
 
     render() {
-        // rendering logic
         const { layout } = this.props;
         return (
             <div block="DemoWidget" mods={ { layout } }>

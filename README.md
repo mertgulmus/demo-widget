@@ -19,7 +19,7 @@ If your ScandiPWA version doesn't support using packages, you need to add the wi
     "@scandipwa/demo-widget": "file:packages/demo-widget"
 }
 ```
-* Run ```cd scandipwa && npm install``` on root folder
+* Run ```cd scandipwa && npm install && cd ..``` on root folder
 * After successful installation, make sure the package is enabled in ```root/scandipwa/package.json```'s ```extensions``` section
 ```
 "extensions": {
@@ -31,6 +31,7 @@ If your ScandiPWA version doesn't support using packages, you need to add the wi
 * Check if ```Scandiweb_DemoWidget``` module is enabled in ```root/app/etc/config.php```
 * After setup is completed, you should be able to see the widget in Magento admin panel (*Widget's name is Demo Widget*).
 * You can use the widget
+![Widget in Admin panel](https://i.imgur.com/iNXA2YL.png)
 
 
 ## How to edit
