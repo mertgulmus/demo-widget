@@ -13,5 +13,8 @@ use Magento\Widget\Block\BlockInterface;
 
 class Demo extends Template implements BlockInterface
 {
-    protected $_template = "widget/template.phtml";
+    // ScandiPWA widget rendering mode does not use this file
+    // If you want to use Magento rendering mode, you can use this file to address your template
+    // Also see the file for more information -> app/code/Scandiweb/DemoWidget/etc/graphql/di.xml
+    // protected $_template = "widget/template.phtml";
 }

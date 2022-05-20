@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-    <widget id="DemoWidget" class="Scandiweb\DemoWidget\Block\Widget\Demo">
+    <widget id="DemoWidget" class="Scandiweb\DemoWidget\Block\Widget\Demo" placeholder_image="Scandiweb_DemoWidget::logo.png">
         <label translate="true">Demo Widget</label>
         <description translate="true">Demo widget that lets you choose and insert an image with PWA</description>
         <parameters>

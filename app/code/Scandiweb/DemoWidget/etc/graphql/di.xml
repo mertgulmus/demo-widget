@@ -1,4 +1,8 @@
 <?xml version="1.0"?>
+<!--
+    This file is only for the ScandiPWA rendering mode
+    If you want to use the Magento rendering mode, you need to delete this file
+ -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <virtualType name="ScandiPWA\CmsGraphQl\Model\Template\VirtualFilter" type="ScandiPWA\CmsGraphQl\Model\Template\Filter">
