@@ -19,7 +19,6 @@ const renderMap = (member) => ({
     DemoWidget: {
         component: DemoWidget
     }
-    // you can add your own widgets here
 });
 
 // We modified rendering logic to render it properly

@@ -13,7 +13,6 @@ import './DemoWidget.style';
 /** @namespace DemoWidget/Component/DemoWidget/Component/DemoWidgetComponent */
 export class DemoWidgetComponent extends PureComponent {
     static propTypes = {
-        // define your props here
         title: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,
         layout: PropTypes.string.isRequired
@@ -37,7 +36,6 @@ export class DemoWidgetComponent extends PureComponent {
         const { layout } = this.props;
         return (
             <div block="DemoWidget" mods={ { layout } }>
-                <p> { EXAMPLE_CONST } </p>
                 { this.renderTitle() }
                 { this.renderImage() }
             </div>

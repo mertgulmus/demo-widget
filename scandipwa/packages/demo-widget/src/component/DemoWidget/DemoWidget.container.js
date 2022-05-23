@@ -11,30 +11,25 @@ import { connect } from 'react-redux';
 
 /** @namespace Scandipwa/Component/DemoWidget/Container/mapStateToProps */
 export const mapStateToProps = (state) => ({
-    // add props here
     baseLinkUrl: state.ConfigReducer.base_link_url // it's a random state imported from ConfigReducer, nothing crucial
 });
 
 /** @namespace Scandipwa/Component/DemoWidget/Container/mapDispatchToProps */
 export const mapDispatchToProps = () => ({
-    // add props here
 });
 
 /** @namespace Scandipwa/Component/DemoWidget/Container/DemoWidgetContainer */
 export class DemoWidgetContainer {
     static propTypes = {
-        // define types of your props here
         baseLinkUrl: PropTypes.string.isRequired
     };
 
     containerProps() {
         const {
-            // pass your props here
             baseLinkUrl
         } = this.props;
 
         return {
-            // pass your props here
             baseLinkUrl
         };
     }

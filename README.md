@@ -26,6 +26,7 @@ If your ScandiPWA version doesn't support using packages, you need to add the wi
     "@scandipwa/demo-widget": true
 }
 ```
+* Make sure your Magento 2 project is running (if not, run ```yarn start``` or ```npm run start```)
 * Run ```yarn cli``` or ```npm run cli``` on the root folder to access Magento CLI
 * Inside CLI, run ```magento setup:upgrade``` to start widget's creation script
 * Check if ```Scandiweb_DemoWidget``` module is enabled in ```root/app/etc/config.php```
