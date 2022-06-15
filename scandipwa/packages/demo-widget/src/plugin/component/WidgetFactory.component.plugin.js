@@ -21,8 +21,6 @@ const renderMap = (member) => ({
     }
 });
 
-// We modified rendering logic to render it properly
-// You don't need to change anything even if you add your own widgets
 const renderContent = (args, callback, instance) => {
     const { type } = instance.props;
 
@@ -42,8 +40,6 @@ const renderContent = (args, callback, instance) => {
     return null;
 };
 
-// We define namespaces which will be overridden by our plugin
-// Also no need to change anything
 export default {
     'Component/WidgetFactory/Component': {
         'member-function': {
