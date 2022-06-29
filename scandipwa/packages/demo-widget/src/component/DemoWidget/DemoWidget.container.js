@@ -7,31 +7,66 @@
  */
 
 import PropTypes from 'prop-types';
+import { createRef } from 'react';
 import { connect } from 'react-redux';
 
-/** @namespace Scandipwa/Component/DemoWidget/Container/mapStateToProps */
+import DataContainer from 'Util/Request/DataContainer';
+
+import { DemoWidgetComponent as DemoWidget } from './DemoWidget.component';
+
+/** @namespace DemoWidget/Component/DemoWidget/Container/mapStateToProps */
 export const mapStateToProps = (state) => ({
     baseLinkUrl: state.ConfigReducer.base_link_url // it's a random state imported from ConfigReducer, nothing crucial
 });
 
-/** @namespace Scandipwa/Component/DemoWidget/Container/mapDispatchToProps */
+/** @namespace DemoWidget/Component/DemoWidget/Container/mapDispatchToProps */
 export const mapDispatchToProps = () => ({
 });
 
-/** @namespace Scandipwa/Component/DemoWidget/Container/DemoWidgetContainer */
-export class DemoWidgetContainer {
+/** @namespace DemoWidget/Component/DemoWidget/Container */
+export class DemoWidgetContainer extends DataContainer {
     static propTypes = {
         baseLinkUrl: PropTypes.string.isRequired
     };
 
+    __construct(props) {
+        super.__construct(props);
+
+        this.widgetRef = createRef();
+    }
+
     containerProps() {
         const {
-            baseLinkUrl
+            baseLinkUrl,
+            image,
+            layout,
+            title,
+            wysiwyg = '',
+            type,
+            color
         } = this.props;
 
+        // html parser doesn't see opening and closing tags in element format, that's why we replace them with < and >
+        const content = wysiwyg.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+
         return {
-            baseLinkUrl
+            baseLinkUrl,
+            image,
+            layout,
+            title,
+            content,
+            type,
+            color
         };
+    }
+
+    render() {
+        return (
+            <DemoWidget
+              { ...this.containerFunctions }
+              { ...this.containerProps() }
+            />
+        );
     }
 }
 

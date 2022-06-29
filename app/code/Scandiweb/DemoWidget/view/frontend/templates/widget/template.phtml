@@ -5,16 +5,14 @@
  * @author    Arturs Strucinskis <arturs.strucinskis@scandiweb.com | info@scandiweb.com>
  * @license   http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0 (OSL-3.0)
  * @copyright Copyright (c) 2022 Scandiweb, Inc (https://scandiweb.com)
+ *
+ * @var $block Scandiweb\DemoWidget\Block\Widget\Demo
+ * We don't use this phtml file because we are using ScandiPWA way of rendering widgets
+ * But if you want to render your widget using Magento way, you must use this file
  */
-
-/** @var $block \Scandiweb\DemoWidget\Block\Widget\Demo */
-/** @var $escaper \Magento\Framework\Escaper */
-
-// TODO Map all the fields used in Widget here, remove unused fields
-// TODO Implement demo rendering of all available fields
 ?>
 
-<widget type="DemoWidget"
+<!-- <widget type="ExampleBanner"
         data-banner-image="<?= $escaper->escapeHtml($block->getBannerImage()) ?>"
         data-banner-title="<?= $escaper->escapeHtml($block->getBannerTitle()) ?>"
         data-step-1-text="<?= $escaper->escapeHtml($block->getStep1Text()) ?>"
@@ -23,4 +21,4 @@
         data-step-4-text="<?= $escaper->escapeHtml($block->getStep4Text()) ?>"
         data-button-url="<?= $escaper->escapeHtml($block->getButtonUrl()) ?>"
         data-button-text="<?= $escaper->escapeHtml($block->getButtonText()) ?>"
-/>
+/> -->

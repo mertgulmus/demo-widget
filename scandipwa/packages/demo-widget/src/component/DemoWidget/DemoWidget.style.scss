@@ -1,8 +1,12 @@
+
+:root {
+    --div-background-color: white;
+}
+
 .DemoWidget {
     display: flex;
-    max-height: 500px;
+    background-color: var(--div-background-color);
 
-    // this is an example feature we define in the widget options
     &_layout_column {
         flex-direction: column;
     }
