@@ -1,3 +1,4 @@
+/* eslint-disable no-magic-numbers */
 /**
  * @category  ScandiPWA
  * @author    Mert Gulmus <mert.gulmus@scandiweb.com | info@scandiweb.com>
@@ -7,7 +8,6 @@
  */
 
 import PropTypes from 'prop-types';
-import { createRef } from 'react';
 import { connect } from 'react-redux';
 
 import DataContainer from 'Util/Request/DataContainer';
@@ -29,12 +29,6 @@ export class DemoWidgetContainer extends DataContainer {
         baseLinkUrl: PropTypes.string.isRequired
     };
 
-    __construct(props) {
-        super.__construct(props);
-
-        this.widgetRef = createRef();
-    }
-
     containerProps() {
         const {
             baseLinkUrl,
@@ -43,7 +37,10 @@ export class DemoWidgetContainer extends DataContainer {
             title,
             wysiwyg = '',
             type,
-            color
+            color,
+            date,
+            phrase,
+            link
         } = this.props;
 
         // html parser doesn't see opening and closing tags in element format, that's why we replace them with < and >
@@ -56,13 +53,65 @@ export class DemoWidgetContainer extends DataContainer {
             title,
             content,
             type,
-            color
+            color,
+            date,
+            phrase,
+            link
         };
     }
 
+    __construct(props) {
+        super.__construct(props);
+
+        const { date: endDateString } = this.props;
+        this.endDate = new Date(endDateString);
+
+        this.state = {
+            timeLeft: this.endDate.getTime() - new Date().getTime()
+        };
+
+        this.interval = null;
+    }
+
+    componentDidMount() {
+        this.interval = setInterval(() => {
+            this.setState({
+                timeLeft: this.endDate.getTime() - new Date().getTime()
+            });
+        }, 1000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
+    formatTimeLeft(timeLeft) {
+        if (timeLeft <= 0) {
+            return [0, 0, 0, 0];
+        }
+
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        return [days, hours, minutes, seconds];
+    }
+
     render() {
+        const { date: phrase } = this.props;
+        const { timeLeft } = this.state;
+
+        const [days, hours, minutes, seconds] = this.formatTimeLeft(timeLeft);
+        const noTimeLeft = timeLeft <= 0;
         return (
             <DemoWidget
+              days={ days }
+              hours={ hours }
+              minutes={ minutes }
+              seconds={ seconds }
+              noTimeLeft={ noTimeLeft }
+              phrase={ phrase }
               { ...this.containerFunctions }
               { ...this.containerProps() }
             />
