@@ -41,6 +41,31 @@
                     <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\ColorPicker">
                     </block>
             </parameter>
+            <parameter name="show_link" xsi:type="select" visible="true" sort_order="60">
+                <label translate="true">Enable link field</label>
+                <options>
+                    <option name="1" value="1">
+                        <label>Yes</label>
+                    </option>
+                    <option name="0" value="0" selected="true">
+                        <label>No</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="link" xsi:type="block" visible="true" sort_order="70">
+                <label translate="true">Link URL</label>
+                <depends>
+                    <parameter name="show_link" value="1"></parameter>
+                </depends>
+                <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\UrlInput"></block>
+            </parameter>
+            <parameter name="date" xsi:type="block" required="true" visible="true" sort_order="80">
+                <label translate="true">End Date and Time</label>
+                <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\DatePicker" />
+            </parameter>
+            <parameter name="phrase" xsi:type="text" required="true" visible="true" sort_order="90">
+                <label translate="true">End Phrase</label>
+            </parameter>
         </parameters>
     </widget>
 </widgets>
