@@ -36,12 +36,14 @@
             -->
             <parameter name="image" xsi:type="block" required="true" visible="true" sort_order="30">
                 <label translate="true">Image</label>
-                    <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\ImageChooser">
-                        <data>
-                            <item name="button" xsi:type="array">
-                                    <item name="open" xsi:type="string">Choose Image...</item>
-                            </item>
-                        </data>
+                <!-- Add comments with relevant hints to the content editors -->
+                <description><![CDATA[Recommended image size is <b>100 x 200</b>]]></description>
+                <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                                <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
                 </block>
             </parameter>
             <parameter name="wysiwyg" xsi:type="block" required="true" visible="true" sort_order="40">
@@ -50,8 +52,8 @@
             </parameter>
             <parameter name="color" xsi:type="block" required="false" visible="true" sort_order="50">
                 <label translate="true">Color</label>
-                    <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\ColorPicker">
-                    </block>
+                <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\ColorPicker">
+                </block>
             </parameter>
             <parameter name="show_link" xsi:type="select" visible="true" sort_order="60">
                 <label translate="true">Enable link field</label>
