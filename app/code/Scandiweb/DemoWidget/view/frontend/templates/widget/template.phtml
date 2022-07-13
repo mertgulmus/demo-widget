@@ -7,12 +7,11 @@
  * @copyright Copyright (c) 2022 Scandiweb, Inc (https://scandiweb.com)
  *
  * @var $block Scandiweb\DemoWidget\Block\Widget\Demo
- * We don't use this phtml file because we are using ScandiPWA way of rendering widgets
- * But if you want to render your widget using Magento way, you must use this file
+ * @var $escaper Magento\Framework\Escaper
  */
 ?>
 
-<!-- <widget type="ExampleBanner"
+<widget type="ExampleBanner"
         data-banner-image="<?= $escaper->escapeHtml($block->getBannerImage()) ?>"
         data-banner-title="<?= $escaper->escapeHtml($block->getBannerTitle()) ?>"
         data-step-1-text="<?= $escaper->escapeHtml($block->getStep1Text()) ?>"
@@ -21,4 +20,4 @@
         data-step-4-text="<?= $escaper->escapeHtml($block->getStep4Text()) ?>"
         data-button-url="<?= $escaper->escapeHtml($block->getButtonUrl()) ?>"
         data-button-text="<?= $escaper->escapeHtml($block->getButtonText()) ?>"
-/> -->
+/>

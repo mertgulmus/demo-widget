@@ -29,6 +29,8 @@ export class DemoWidgetContainer extends DataContainer {
         baseLinkUrl: PropTypes.string.isRequired
     };
 
+    containerFunctions = {};
+
     containerProps() {
         const {
             baseLinkUrl,
