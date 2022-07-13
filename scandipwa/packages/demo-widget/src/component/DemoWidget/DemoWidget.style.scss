@@ -1,13 +1,65 @@
+
+:root {
+    --div-background-color: white;
+}
+
 .DemoWidget {
     display: flex;
+    background-color: var(--div-background-color);
     max-height: 500px;
 
-    // this is an example feature we define in the widget options
     &_layout_column {
         flex-direction: column;
     }
 
     &-Image {
         object-fit: contain;
+        max-width: 500px;
+    }
+
+    &-Text {
+        display: flex;
+        flex-direction: column;
+        margin: 0 8px;
+        grid-row: 1;
+
+        span {
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 18px;
+            color: white;
+
+            &:not(:first-child) {
+                font-weight: normal;
+            }
+        }
+
+        a {
+            width: max-content;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 14px;
+            color: white;
+
+            &:hover {
+                color: red;
+            }
+        }
+
+        @include tablet {
+            margin: 0 8px 0 0;
+            grid-row: 2;
+        }
+
+        &_template {
+            &_classic {
+                margin: 0 8px;
+                grid-row: 1;
+
+                span {
+                    color: black;
+                }
+            }
+        }
     }
 }
