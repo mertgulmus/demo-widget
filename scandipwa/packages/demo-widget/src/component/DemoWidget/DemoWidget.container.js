@@ -29,6 +29,10 @@ export class DemoWidgetContainer extends DataContainer {
         baseLinkUrl: PropTypes.string.isRequired
     };
 
+    state = {
+        timeLeft: 0
+    };
+
     containerFunctions = {};
 
     containerProps() {
