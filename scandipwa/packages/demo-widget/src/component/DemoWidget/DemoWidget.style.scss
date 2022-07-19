@@ -3,10 +3,21 @@
     --div-background-color: white;
 }
 
+.Countdown {
+    &-TimeBlock {
+        margin: 3px;
+    }
+}
+
 .DemoWidget {
     display: flex;
     background-color: var(--div-background-color);
     max-height: 500px;
+
+    &-ProdHolder {
+        color: white;
+        font-size: 20px;
+    }
 
     &_layout_column {
         flex-direction: column;
