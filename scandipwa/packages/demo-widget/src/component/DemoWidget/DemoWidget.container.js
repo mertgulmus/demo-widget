@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-magic-numbers */
 /**
  * @category  ScandiPWA
@@ -39,32 +40,27 @@ export class DemoWidgetContainer extends DataContainer {
         const {
             baseLinkUrl,
             image,
-            layout,
             title,
             wysiwyg = '',
             type,
             color,
             date,
             phrase,
-            link
+            link = '',
+            product = '',
+            category = ''
         } = this.props;
 
+        const noTimeLeft = this.state.timeLeft <= 0;
         const days = Math.floor(this.state.timeLeft / (1000 * 60 * 60 * 24));
         const hours = Math.floor((this.state.timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((this.state.timeLeft % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((this.state.timeLeft % (1000 * 60)) / 1000);
         // html parser doesn't see opening and closing tags in element format, that's why we replace them with < and >
-        const content = wysiwyg.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-        const timeLeft = this.state.timeLeft;
-        const noTimeLeft = timeLeft <= 0;
-        if (noTimeLeft) {
-            days, hours, seconds, minutes = 0;
-        }
-
+        const content = wysiwyg.toString().replace(/&lt;/g, '<').replace(/&gt;/g, '>');
         return {
             baseLinkUrl,
             image,
-            layout,
             title,
             content,
             type,
@@ -76,8 +72,9 @@ export class DemoWidgetContainer extends DataContainer {
             hours,
             minutes,
             seconds,
-            timeLeft,
-            noTimeLeft
+            noTimeLeft,
+            product,
+            category
         };
     }
 
@@ -109,7 +106,6 @@ export class DemoWidgetContainer extends DataContainer {
     render() {
         return (
             <DemoWidget
-              { ...this.containerFunctions }
               { ...this.containerProps() }
             />
         );
