@@ -48,7 +48,7 @@
                 <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\ColorPicker">
                 </block>
             </parameter>
-            <parameter name="is_enabled" xsi:type="select" visible="true" sort_order="60">
+            <parameter name="show_link" xsi:type="select" visible="true" sort_order="60">
                 <label translate="true">Is Enabled?</label>
                 <options>
                     <option name="1" value="1">
@@ -62,7 +62,7 @@
             <parameter name="link" xsi:type="block" visible="true" sort_order="70">
                 <label translate="true">Link URL</label>
                 <depends>
-                    <parameter name="is_enabled" value="1"></parameter>
+                    <parameter name="show_link" value="1"></parameter>
                 </depends>
                 <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\UrlInput"></block>
             </parameter>
