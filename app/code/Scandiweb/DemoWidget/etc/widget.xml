@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-<<<<<<< HEAD
+
     <!-- Please add a widget icon in Scandiweb/DemoWidget/view/adminhtml/web/logo.png, and
          reference it in placeholder_image, so it is easier for content editors to distinguish
          different widgets in the admin. Just Google to get some free icons
@@ -11,10 +11,7 @@
          your widget gets properly replaced with a ScandiPWA component.
          'id' has to be unique for each widget.
     -->
-    <widget id="DemoWidget" class="Scandiweb\DemoWidget\Block\Widget\Demo" placeholder_image="Scandiweb_DemoWidget::logo.png">
-=======
     <widget id="DemoWidget" class="Scandiweb\DemoWidget\Block\Widget\DemoWidget" placeholder_image="Scandiweb_DemoWidget::logo.png">
->>>>>>> pb-3: Added category and product link selectors
         <label translate="true">Demo Widget</label>
         <description translate="true">Demo widget that lets you choose and insert an image with PWA</description>
         <parameters>
