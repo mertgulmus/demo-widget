@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable no-magic-numbers */
 /**
  * @category  ScandiPWA
  * @author    Mert Gulmus <mert.gulmus@scandiweb.com | info@scandiweb.com>
