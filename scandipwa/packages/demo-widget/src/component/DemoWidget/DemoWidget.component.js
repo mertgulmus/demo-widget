@@ -1,6 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable react/boolean-prop-naming */
-/* eslint-disable @scandipwa/scandipwa-guidelines/only-render-in-component */
 /**
 * @category  ScandiPWA
 * @author    Mert Gulmus <mert.gulmus@scandiweb.com | info@scandiweb.com>
