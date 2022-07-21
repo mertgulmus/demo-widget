@@ -7,8 +7,8 @@
          different widgets in the admin. Just Google to get some free icons
          https://www.google.com/search?q=free+icons
 
-         'id' defined here will need to match keys passed to the WidgetFactory.component.js so
-         your widget gets properly replaced with a ScandiPWA component.
+         'id' defined here will need to match keys passed to the WidgetFactory.component.plugin.js
+         so your widget gets properly replaced with a ScandiPWA component.
          'id' has to be unique for each widget.
     -->
     <widget id="DemoWidget" class="Scandiweb\DemoWidget\Block\Widget\DemoWidget" placeholder_image="Scandiweb_DemoWidget::logo.png">

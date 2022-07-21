@@ -10,6 +10,17 @@
  */
 ?>
 
+<!--
+    The value of type has to be the identical to what is used in WidgetFactory.component.plugin.js
+    renderMap() function f.e.
+
+    const renderMap = (member) => ({
+        ...member,
+        DemoWidget: {
+            component: DemoWidget
+        }
+    });
+-->
 <widget type="DemoWidget"
         image="<?= $escaper->escapeHtml($block->getImage()) ?>"
         title="<?= $escaper->escapeHtml($block->getTitle()) ?>"
@@ -23,7 +34,7 @@
 ></widget>
 <!--
     Please use full closing tags to all widget templates (*.phtml files).
-    If we have the self closing tags like <widget type="DemoWidget"/>
+    If we have the self-closing tags like <widget type="DemoWidget"/>
     the Scandipwa parser will not work as expected. So, please use
     <widget type="MyWidget"></widget> instead.
 -->
