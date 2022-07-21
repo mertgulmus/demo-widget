@@ -50,16 +50,14 @@ class DemoWidget extends Template implements BlockInterface
     // With the function below, we are subtracting the number after the "/", which corresponds to the product ID
     function getProductId() {
         $product = $this->getProduct();
-        $productId = substr(strrchr($product, '/'), 1);
-        return $productId;
+        return substr(strrchr($product, '/'), 1);
     }
 
     // Here we use a core magic function getCategory(), that returns us a slug that looks like "category/<category_id>".
     // With the function below, we are subtracting the number after the "/", which corresponds to the category ID
     function getCategoryId() {
         $category = $this->getCategory();
-        $categoryId = substr(strrchr($category, '/'), 1);
-        return $categoryId;
+        return substr(strrchr($category, '/'), 1);
     }
 
     function getCategoryUrl(){
@@ -72,8 +70,7 @@ class DemoWidget extends Template implements BlockInterface
         $productId = (int)$this->getProductId();
         $storeId = $this->getStoreId();
         $product = $this->productRepository->getById($productId, false, $storeId);
-        $productUrl = $product->setStoreId($storeId)->getUrlModel()->getUrlInStore($product, ['_escape' => true]);
-        return $productUrl;
+        return $product->setStoreId($storeId)->getUrlModel()->getUrlInStore($product, ['_escape' => true]);
     }
 }
 
