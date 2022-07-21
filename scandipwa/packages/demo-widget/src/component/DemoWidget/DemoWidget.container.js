@@ -1,4 +1,3 @@
-/* eslint-disable no-magic-numbers */
 /**
  * @category  ScandiPWA
  * @author    Mert Gulmus <mert.gulmus@scandiweb.com | info@scandiweb.com>
@@ -39,27 +38,27 @@ export class DemoWidgetContainer extends DataContainer {
         const {
             baseLinkUrl,
             image,
-            layout,
             title,
             wysiwyg = '',
             type,
             color,
             date,
             phrase,
-            link
+            link = '',
+            product = '',
+            category = ''
         } = this.props;
 
+        const noTimeLeft = this.state.timeLeft <= 0;
         const days = Math.floor(this.state.timeLeft / (1000 * 60 * 60 * 24));
         const hours = Math.floor((this.state.timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((this.state.timeLeft % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((this.state.timeLeft % (1000 * 60)) / 1000);
         // html parser doesn't see opening and closing tags in element format, that's why we replace them with < and >
-        const content = wysiwyg.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-
+        const content = wysiwyg.toString().replace(/&lt;/g, '<').replace(/&gt;/g, '>');
         return {
             baseLinkUrl,
             image,
-            layout,
             title,
             content,
             type,
@@ -70,7 +69,10 @@ export class DemoWidgetContainer extends DataContainer {
             days,
             hours,
             minutes,
-            seconds
+            seconds,
+            noTimeLeft,
+            product,
+            category
         };
     }
 
@@ -99,36 +101,9 @@ export class DemoWidgetContainer extends DataContainer {
         clearInterval(this.interval);
     }
 
-    formatTimeLeft(timeLeft) {
-        const {
-            days,
-            hours,
-            seconds,
-            minutes
-        } = this.props;
-
-        if (timeLeft <= 0) {
-            return [0, 0, 0, 0];
-        }
-
-        return [days, hours, minutes, seconds];
-    }
-
     render() {
-        const { date: phrase } = this.props;
-        const { timeLeft } = this.state;
-
-        const [days, hours, minutes, seconds] = this.formatTimeLeft(timeLeft);
-        const noTimeLeft = timeLeft <= 0;
         return (
             <DemoWidget
-              days={ days }
-              hours={ hours }
-              minutes={ minutes }
-              seconds={ seconds }
-              noTimeLeft={ noTimeLeft }
-              phrase={ phrase }
-              { ...this.containerFunctions }
               { ...this.containerProps() }
             />
         );
