@@ -13,7 +13,7 @@
     -->
     <widget id="DemoWidget" class="Scandiweb\DemoWidget\Block\Widget\DemoWidget" placeholder_image="Scandiweb_DemoWidget::logo.png">
         <label translate="true">Demo Widget</label>
-        <description translate="true">Demo widget that lets you choose and insert an image with PWA</description>
+        <description translate="true">Demo widget with possible input fields</description>
         <parameters>
             <!-- Please use snake case as variable names for parameters. e.g. snake_case_name
                  To get data use $block->getSnakeCaseName().
@@ -21,7 +21,7 @@
             <parameter name="title" xsi:type="text" required="true" visible="true" sort_order="10">
                 <label translate="true">Image Title</label>
             </parameter>
-            <!-- To properly use the Image field, please set the following:
+            <!-- To properly use the Image field, please set to Yes the following:
                  Admin->Stores->Configuration->General->Content Management->WYSIWYG Options->Use Static URLs for Media Content in WYSIWYG
             -->
             <parameter name="image" xsi:type="block" required="true" visible="true" sort_order="30">
@@ -59,9 +59,9 @@
             <parameter name="link" xsi:type="block" visible="true" sort_order="70">
                 <label translate="true">Link URL</label>
                 <depends>
-                    <parameter name="show_link" value="1"></parameter>
+                    <parameter name="show_link" value="1"/>
                 </depends>
-                <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\UrlInput"></block>
+                <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\UrlInput"/>
             </parameter>
             <parameter name="date" xsi:type="block" required="true" visible="true" sort_order="80">
                 <label translate="true">End Date and Time</label>
