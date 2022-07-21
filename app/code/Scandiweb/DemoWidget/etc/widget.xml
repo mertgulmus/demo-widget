@@ -70,6 +70,8 @@
             <parameter name="phrase" xsi:type="text" required="true" visible="true" sort_order="90">
                 <label translate="true">End Phrase</label>
             </parameter>
+            <!-- Magento core class is used here, it will save product as "product/<product_id>"
+                 A function in Block/Widget/DemoWidget.php is used to process this  -->
             <parameter name="product" xsi:type="block" visible="true" required="true" sort_order="100">
                 <label translate="true">Product</label>
                 <block class="Magento\Catalog\Block\Adminhtml\Product\Widget\Chooser">
@@ -80,6 +82,8 @@
                     </data>
                 </block>
             </parameter>
+            <!-- Magento core class is used here, it will save category as "category/<category_id>"
+                 A function in Block/Widget/DemoWidget.php is used to process this  -->
             <parameter name="category" xsi:type="block" visible="true" required="true" sort_order="110">
                 <label translate="true">Category</label>
                 <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">

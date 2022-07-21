@@ -47,13 +47,15 @@ class DemoWidget extends Template implements BlockInterface
     }
 
     // Here we use a core magic function getProduct(), that returns us a slug that looks like "product/<product_id>".
-    // With the function below, we are substracting the number after the "/", which corresponds to the product/category ID
+    // With the function below, we are subtracting the number after the "/", which corresponds to the product ID
     function getProductId() {
         $product = $this->getProduct();
         $productId = substr(strrchr($product, '/'), 1);
         return $productId;
     }
 
+    // Here we use a core magic function getCategory(), that returns us a slug that looks like "category/<category_id>".
+    // With the function below, we are subtracting the number after the "/", which corresponds to the category ID
     function getCategoryId() {
         $category = $this->getCategory();
         $categoryId = substr(strrchr($category, '/'), 1);
