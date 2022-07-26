@@ -6,6 +6,14 @@ This extension lets you use the Demo Widget, without making any code changes.
 * Mert Gulmus (mert.gulmus@scandiweb.com) *feel free to reach out*
 * Artūrs Strucinskis (arturs.strucinskis@scandiweb.com)
 
+## Available features: 
+ - Text fields
+ - Textarea field
+ - Color picker
+ - WYSIWYG editor
+ - Image uploader
+ - Dependent URL input field
+
 
 ## About ScandiPWA support
 If your ScandiPWA version doesn't support using packages, you need to add the widget in ```root/scandipwa/src/component/WidgetFactory/WidgetFactory.component.js``` as we added in the WidgetFactory plugin file. Then you need to copy ```root/scandipwa/packages/demo-widget/src/component/DemoWidget``` folder into ```root/scandipwa/src/component``` folder. If you corrected all pathways, it should work without any problems.
@@ -33,6 +41,8 @@ If your ScandiPWA version doesn't support using packages, you need to add the wi
 * After setup is completed, you should be able to see the widget in Magento admin panel (*Widget's name is Demo Widget*).
 * You can use the widget
 ![Widget in Admin panel](https://i.imgur.com/iNXA2YL.png)
+![Screenshot from 2022-07-26 12-27-02](https://user-images.githubusercontent.com/102791059/180973375-8c378ce9-2dc2-4c1f-a236-c809d421be08.png)
+
 
 
 ## How to edit
