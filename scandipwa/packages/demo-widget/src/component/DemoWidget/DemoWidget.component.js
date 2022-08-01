@@ -1,3 +1,5 @@
+/* eslint-disable react/boolean-prop-naming */
+/* eslint-disable @scandipwa/scandipwa-guidelines/only-render-in-component */
 /**
 * @category  ScandiPWA
 * @author    Mert Gulmus <mert.gulmus@scandiweb.com | info@scandiweb.com>
@@ -13,11 +15,12 @@ import CSS from 'Util/CSS';
 
 import './DemoWidget.style';
 
-/** @namespace DemoWidget/Component/DemoWidget/Component */
+/** @namespace Scandipwa/Component/DemoWidget/Component */
 export class DemoWidgetComponent extends PureComponent {
     static propTypes = {
         title: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,
+        layout: PropTypes.string.isRequired,
         content: PropTypes.string.isRequired,
         color: PropTypes.string.isRequired,
         phrase: PropTypes.string.isRequired,
@@ -27,8 +30,7 @@ export class DemoWidgetComponent extends PureComponent {
         seconds: PropTypes.number.isRequired,
         noTimeLeft: PropTypes.bool.isRequired,
         link: PropTypes.string.isRequired,
-        product: PropTypes.string.isRequired,
-        category: PropTypes.string.isRequired
+        new_string: PropTypes.string.isRequired
     };
 
     widgetRef = createRef();
@@ -105,35 +107,24 @@ export class DemoWidgetComponent extends PureComponent {
         );
     }
 
-    renderProductAndCategoryLinks() {
-        const {
-            product,
-            category
-        } = this.props;
+    renderTextArea() {
+        const { new_string } = this.props;
 
         return (
             <div
               block="DemoWidget"
-              elem="ProdAndCatHolder"
+              elem="TextArea"
             >
-                <div
-                  block="DemoWidget"
-                  elem="ProdHolder"
-                >
-                    <a href={ product }>{ __('Product') }</a>
-                </div>
-                <div
-                  block="DemoWidget"
-                  elem="CatHolder"
-                >
-                    <a href={ category }>{ __('Category') }</a>
-                </div>
+                <textarea>
+                    { new_string }
+                </textarea>
             </div>
         );
     }
 
     render() {
         const {
+            layout,
             days,
             hours,
             minutes,
@@ -144,6 +135,7 @@ export class DemoWidgetComponent extends PureComponent {
             <div
               block="DemoWidget"
               ref={ this.widgetRef }
+              mods={ { layout } }
             >
                 { this.renderTitle() }
                 { this.renderImage() }
@@ -155,7 +147,7 @@ export class DemoWidgetComponent extends PureComponent {
                     { this.renderTimeBlock(minutes, __('min')) }
                     { this.renderTimeBlock(seconds, __('sec')) }
                 </div>
-                { this.renderProductAndCategoryLinks() }
+                { this.renderTextArea() }
             </div>
         );
     }

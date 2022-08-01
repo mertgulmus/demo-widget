@@ -15,9 +15,10 @@ use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
 use Magento\Catalog\Model\Product;
 use Magento\Catalog\Api\ProductRepositoryInterface;
-use Magento\Store\Model\StoreManagerInterface;
 use Magento\Catalog\Model\CategoryRepository;
+use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\View\Element\Template\Context;
+
 
 class DemoWidget extends Template implements BlockInterface
 {
@@ -28,8 +29,8 @@ class DemoWidget extends Template implements BlockInterface
     protected $productRepository;
 
     public function __construct(
-        StoreManagerInterface $storeManager,
         CategoryRepository $categoryRepository,
+        StoreManagerInterface $storeManager,
         Context $context,
         Product $productModel,
         ProductRepositoryInterface $productRepository,
@@ -46,8 +47,6 @@ class DemoWidget extends Template implements BlockInterface
         return $this->storeManager->getStore()->getId();
     }
 
-    // Here we use a core magic function getProduct(), that returns us a slug that looks like "product/<product_id>".
-    // With the function below, we are substracting the number after the "/", which corresponds to the product/category ID
     function getProductId() {
         $product = $this->getProduct();
         $productId = substr(strrchr($product, '/'), 1);
