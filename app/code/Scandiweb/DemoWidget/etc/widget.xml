@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <!-- Please add a widget icon in Scandiweb/DemoWidget/view/adminhtml/web/logo.png, and
+         reference it in placeholder_image, so it is easier for content editors to distinguish
+         different widgets in the admin. Just Google to get some free icons
+         https://www.google.com/search?q=free+icons
+
+         'id' defined here will need to match keys passed to the WidgetFactory.component.plugin.js
+         so your widget gets properly replaced with a ScandiPWA component.
+         'id' has to be unique for each widget.
+    -->
     <widget id="DemoWidget" class="Scandiweb\DemoWidget\Block\Widget\DemoWidget" placeholder_image="Scandiweb_DemoWidget::logo.png">
         <label translate="true">Demo Widget</label>
-        <description translate="true">Demo widget that lets you choose and insert an image with PWA</description>
+        <description translate="true">Demo widget with possible input fields</description>
         <parameters>
             <parameter name="title" xsi:type="text" required="true" visible="true" sort_order="10">
                 <label translate="true">Image Title</label>
             </parameter>
-            <!-- To properly use the Image field, please set the following:
-            Admin->Stores->Configuration->General->Content Management->WYSIWYG Options->Use Static URLs for Media Content in WYSIWYG
+
+            <!-- To properly use the Image field, please set to Yes the following:
+                 Admin->Stores->Configuration->General->Content Management->WYSIWYG Options->Use Static URLs for Media Content in WYSIWYG
             -->
             <parameter name="image" xsi:type="block" required="true" visible="true" sort_order="30">
                 <label translate="true">Image</label>
@@ -30,7 +40,7 @@
                     <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\ColorPicker">
                     </block>
             </parameter>
-            <parameter name="is_enabled" xsi:type="select" visible="true" sort_order="60">
+            <parameter name="show_link" xsi:type="select" visible="true" sort_order="60">
                 <label translate="true">Is Enabled?</label>
                 <options>
                     <option name="1" value="1">
@@ -44,9 +54,10 @@
             <parameter name="link" xsi:type="block" visible="true" sort_order="70">
                 <label translate="true">Link URL</label>
                 <depends>
-                    <parameter name="is_enabled" value="1"></parameter>
+
+                    <parameter name="show_link" value="1"/>
                 </depends>
-                <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\UrlInput"></block>
+                <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\UrlInput"/>
             </parameter>
             <parameter name="date" xsi:type="block" required="true" visible="true" sort_order="80">
                 <label translate="true">End Date and Time</label>
@@ -55,6 +66,20 @@
             <parameter name="phrase" xsi:type="text" required="true" visible="true" sort_order="90">
                 <label translate="true">End Phrase</label>
             </parameter>
+            <!-- Magento core class is used here, it will save product as "product/<product_id>"
+                 A function in Block/Widget/DemoWidget.php is used to process this  -->
+            <parameter name="product" xsi:type="block" visible="true" required="true" sort_order="100">
+                <label translate="true">Product</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Product\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Product...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <!-- Magento core class is used here, it will save category as "category/<category_id>"
+                 A function in Block/Widget/DemoWidget.php is used to process this  -->
             <parameter name="category" xsi:type="block" visible="true" required="true" sort_order="110">
                 <label translate="true">Category</label>
                 <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
