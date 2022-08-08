@@ -95,6 +95,10 @@
                 <description translate="true">In order for widget to work corrctly, please insert only single-quote json</description>
                 <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\TextField"/>
             </parameter>
+            <parameter name="rows" xsi:type="block" required="true" visible="true" sort_order="130">
+                <label translate="true">Table: </label>
+                <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\DynamicTable"/>
+            </parameter>
         </parameters>
     </widget>
 </widgets>

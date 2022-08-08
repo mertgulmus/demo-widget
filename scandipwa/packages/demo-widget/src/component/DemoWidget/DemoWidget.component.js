@@ -30,7 +30,13 @@ export class DemoWidgetComponent extends PureComponent {
         seconds: PropTypes.number.isRequired,
         noTimeLeft: PropTypes.bool.isRequired,
         link: PropTypes.string.isRequired,
-        new_string: PropTypes.string.isRequired
+        dynamicRowsArray: PropTypes.arrayOf(
+            PropTypes.shape({
+                name: PropTypes.string.isRequired,
+                phone: PropTypes.string.isRequired,
+                email: PropTypes.string.isRequired
+            }).isRequired
+        ).isRequired
     };
 
     widgetRef = createRef();
@@ -65,6 +71,35 @@ export class DemoWidgetComponent extends PureComponent {
     renderWysiwyg() {
         const { content } = this.props;
         return <Html content={ content } />;
+    }
+
+    renderDynamicRows() {
+        const { dynamicRowsArray } = this.props;
+
+        return (
+            <div>
+                { dynamicRowsArray.map(({ name, phone, email }, index) => {
+                    const objNum = `${ index + 1 }.`;
+
+                    return (
+                        <div key={ objNum }>
+                            <p>
+                                name:
+                                { name }
+                            </p>
+                            <p>
+                                phone:
+                                { phone }
+                            </p>
+                            <p>
+                                email:
+                                { email }
+                            </p>
+                        </div>
+                    );
+                }) }
+            </div>
+        );
     }
 
     renderTimeBlock(time, suffix) {
@@ -107,21 +142,6 @@ export class DemoWidgetComponent extends PureComponent {
         );
     }
 
-    renderTextArea() {
-        const { new_string } = this.props;
-
-        return (
-            <div
-              block="DemoWidget"
-              elem="TextArea"
-            >
-                <textarea>
-                    { new_string }
-                </textarea>
-            </div>
-        );
-    }
-
     render() {
         const {
             layout,
@@ -147,7 +167,7 @@ export class DemoWidgetComponent extends PureComponent {
                     { this.renderTimeBlock(minutes, __('min')) }
                     { this.renderTimeBlock(seconds, __('sec')) }
                 </div>
-                { this.renderTextArea() }
+                { this.renderDynamicRows() }
             </div>
         );
     }
