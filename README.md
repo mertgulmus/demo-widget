@@ -4,6 +4,9 @@ This extension lets you use the Demo Widget, without making any code changes.
 You can also find an example of Demo Content Type in this repository:
 https://github.com/danyloherasymovscandiweb/demo-content-type
 
+The list of pre-made widgets can be found in this repository:
+https://github.com/danyloherasymovscandiweb/Pagebuilder-widgets
+
 ## Authors
 * Mert Gulmus (mert.gulmus@scandiweb.com) *feel free to reach out*
 * Artūrs Strucinskis (arturs.strucinskis@scandiweb.com)
