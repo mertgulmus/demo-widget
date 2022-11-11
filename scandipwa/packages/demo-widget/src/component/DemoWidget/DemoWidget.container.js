@@ -15,7 +15,8 @@ import { DemoWidgetComponent as DemoWidget } from './DemoWidget.component';
 
 /** @namespace DemoWidget/Component/DemoWidget/Container/mapStateToProps */
 export const mapStateToProps = (state) => ({
-    baseLinkUrl: state.ConfigReducer.base_link_url // it's a random state imported from ConfigReducer, nothing crucial
+    // it's a random state imported from ConfigReducer, nothing crucial
+    baseLinkUrl: state.ConfigReducer.base_link_url
 });
 
 /** @namespace DemoWidget/Component/DemoWidget/Container/mapDispatchToProps */
@@ -45,8 +46,9 @@ export class DemoWidgetContainer extends DataContainer {
             date,
             phrase,
             link = '',
-            product = '',
-            category = ''
+            productUrl = '',
+            categoryUrl = '',
+            sliderId = 0
         } = this.props;
 
         const noTimeLeft = this.state.timeLeft <= 0;
@@ -71,8 +73,9 @@ export class DemoWidgetContainer extends DataContainer {
             minutes,
             seconds,
             noTimeLeft,
-            product,
-            category
+            productUrl,
+            categoryUrl,
+            sliderId
         };
     }
 

@@ -10,6 +10,8 @@ import { createRef, PureComponent } from 'react';
 
 import Html from 'SourceComponent/Html';
 import CSS from 'Util/CSS';
+import WidgetFactory from 'Component/WidgetFactory';
+import { SLIDER } from 'Component/WidgetFactory/WidgetFactory.config';
 
 import './DemoWidget.style';
 
@@ -27,8 +29,9 @@ export class DemoWidgetComponent extends PureComponent {
         seconds: PropTypes.number.isRequired,
         noTimeLeft: PropTypes.bool.isRequired,
         link: PropTypes.string.isRequired,
-        product: PropTypes.string.isRequired,
-        category: PropTypes.string.isRequired
+        productUrl: PropTypes.string.isRequired,
+        categoryUrl: PropTypes.string.isRequired,
+        sliderId: PropTypes.string.isRequired
     };
 
     widgetRef = createRef();
@@ -63,6 +66,12 @@ export class DemoWidgetComponent extends PureComponent {
     renderWysiwyg() {
         const { content } = this.props;
         return <Html content={ content } />;
+    }
+
+    renderSlider() {
+        const { sliderId } = this.props;
+
+        return <WidgetFactory type={ SLIDER } sliderId={ sliderId } />;
     }
 
     renderTimeBlock(time, suffix) {
@@ -107,26 +116,26 @@ export class DemoWidgetComponent extends PureComponent {
 
     renderProductAndCategoryLinks() {
         const {
-            product,
-            category
+            productUrl,
+            categoryUrl
         } = this.props;
 
         return (
             <div
               block="DemoWidget"
-              elem="ProdAndCatHolder"
+              elem="ProductAndCategoryHolder"
             >
                 <div
                   block="DemoWidget"
-                  elem="ProdHolder"
+                  elem="ProductHolder"
                 >
-                    <a href={ product }>{ __('Product') }</a>
+                    <a href={ productUrl }>{ __('Product') }</a>
                 </div>
                 <div
                   block="DemoWidget"
-                  elem="CatHolder"
+                  elem="CategoryHolder"
                 >
-                    <a href={ category }>{ __('Category') }</a>
+                    <a href={ categoryUrl }>{ __('Category') }</a>
                 </div>
             </div>
         );
@@ -147,15 +156,20 @@ export class DemoWidgetComponent extends PureComponent {
             >
                 { this.renderTitle() }
                 { this.renderImage() }
-                { this.renderWysiwyg() }
                 { this.renderLink() }
-                <div block="DemoWidget" element="Countdown">
+                <div block="DemoWidget" elem="Countdown">
                     { this.renderTimeBlock(days, __('days')) }
                     { this.renderTimeBlock(hours, __('h')) }
                     { this.renderTimeBlock(minutes, __('min')) }
                     { this.renderTimeBlock(seconds, __('sec')) }
                 </div>
                 { this.renderProductAndCategoryLinks() }
+                <div block="DemoWidget" elem="Slider">
+                    { this.renderSlider() }
+                </div>
+                <div block="DemoWidget" elem="Wysiwyg">
+                    { this.renderWysiwyg() }
+                </div>
             </div>
         );
     }

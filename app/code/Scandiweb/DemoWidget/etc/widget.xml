@@ -46,7 +46,7 @@
                 </block>
             </parameter>
             <parameter name="show_link" xsi:type="select" visible="true" sort_order="60">
-                <label translate="true">Is Enabled?</label>
+                <label translate="true">Is Link Enabled?</label>
                 <options>
                     <option name="1" value="1">
                         <label>Yes</label>
@@ -71,7 +71,9 @@
                 <label translate="true">End Phrase</label>
             </parameter>
             <!-- Magento core class is used here, it will save product as "product/<product_id>"
-                 A function in Block/Widget/DemoWidget.php is used to process this  -->
+                 A function in Block/Widget/DemoWidget.php is used to process this.
+                 In ScandiPWA this attribute will be in 'productUrl' prop.
+            -->
             <parameter name="product" xsi:type="block" visible="true" required="true" sort_order="100">
                 <label translate="true">Product</label>
                 <block class="Magento\Catalog\Block\Adminhtml\Product\Widget\Chooser">
@@ -83,13 +85,29 @@
                 </block>
             </parameter>
             <!-- Magento core class is used here, it will save category as "category/<category_id>"
-                 A function in Block/Widget/DemoWidget.php is used to process this  -->
+                 A function in Block/Widget/DemoWidget.php is used to process this.
+                 In ScandiPWA this attribute will be in 'categoryUrl' prop.
+            -->
             <parameter name="category" xsi:type="block" visible="true" required="true" sort_order="110">
                 <label translate="true">Category</label>
                 <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
                     <data>
                         <item name="button" xsi:type="array">
                             <item name="open" xsi:type="string" translate="true">Select Category...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <!-- Slider ID, Slider content should be loaded from ScandiPWA
+                 For this field to work Scandiweb_Slider module has to be installed.
+                 In ScandiPWA this attribute will be in 'sliderId' prop
+            -->
+            <parameter name="slider_id" xsi:type="block" visible="true" required="true" sort_order="120">
+                <label translate="true">Slider</label>
+                <block class="\Scandiweb\Slider\Block\Adminhtml\Slider\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Slider...</item>
                         </item>
                     </data>
                 </block>

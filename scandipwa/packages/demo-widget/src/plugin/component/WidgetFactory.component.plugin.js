@@ -4,6 +4,7 @@
  * @category  ScandiPWA
  * @author    Mert Gulmus <mert.gulmus@scandiweb.com | info@scandiweb.com>
  * @author    Arturs Strucinskis <arturs.strucinskis@scandiweb.com | info@scandiweb.com>
+ * @author    Raivis Dejus <info@scandiweb.com>
  * @license   http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0 (OSL-3.0)
  * @copyright Copyright (c) 2022 Scandiweb, Inc (https://scandiweb.com)
  */
@@ -12,10 +13,13 @@ import { lazy } from 'react';
 
 import RenderWhenVisible from 'Component/RenderWhenVisible';
 
-export const DemoWidget = lazy(() => import(
-    /* webpackMode: "lazy", webpackChunkName: "widget-demo" */
-    '../../component/DemoWidget'
-));
+import DemoWidget from '../../component/DemoWidget';
+
+// TODO figure out why lazy loading breaks the site
+// export const DemoWidget = lazy(() => import(
+//     /* webpackMode: "lazy", webpackChunkName: "widget-demo" */
+//     '../../component/DemoWidget'
+// ));
 
 const renderMap = (member) => ({
     ...member,
@@ -25,7 +29,19 @@ const renderMap = (member) => ({
 });
 
 const renderContent = (args, callback, instance) => {
-    const { type } = instance.props;
+    const {
+        type,
+        image,
+        title,
+        wysiwyg,
+        color,
+        link,
+        productUrl,
+        categoryUrl,
+        date,
+        phrase,
+        sliderId,
+    } = instance.props;
 
     const {
         component: Widget,
@@ -35,12 +51,25 @@ const renderContent = (args, callback, instance) => {
     if (Widget !== undefined) {
         return (
             <RenderWhenVisible fallback={ fallback }>
-                <Widget { ...instance.props } />
+                <Widget
+                    image={ image }
+                    title={ title }
+                    wysiwyg={ wysiwyg }
+                    color={ color }
+                    link={ link }
+                    productUrl={ productUrl }
+                    categoryUrl={ categoryUrl }
+                    date={ date }
+                    phrase={ phrase }
+                    sliderId={ sliderId }
+                />
             </RenderWhenVisible>
         );
     }
 
-    return null;
+    // If this extension did not render the necessary content
+    // we return control to the core system to render it
+    return callback();
 };
 
 export default {

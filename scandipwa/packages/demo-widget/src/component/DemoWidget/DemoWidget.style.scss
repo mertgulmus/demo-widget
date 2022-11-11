@@ -11,10 +11,11 @@
 
 .DemoWidget {
     display: flex;
+    flex-direction: column;
     background-color: var(--div-background-color);
     max-height: 500px;
 
-    &-ProdHolder {
+    &-ProductHolder {
         color: white;
         font-size: 20px;
     }
@@ -72,5 +73,9 @@
                 }
             }
         }
+    }
+
+    &-Slider {
+        width: 100%;
     }
 }

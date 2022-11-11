@@ -6,35 +6,44 @@
  * @license   http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0 (OSL-3.0)
  * @copyright Copyright (c) 2022 Scandiweb, Inc (https://scandiweb.com)
  *
- * @var $block Scandiweb\DemoWidget\Block\Widget\Demo
+ * @var Scandiweb\DemoWidget\Block\Widget\DemoWidget $block
+ * @var Magento\Framework\Escaper $escaper
  */
 ?>
 
-<!--
-    The value of type has to be the identical to what is used in WidgetFactory.component.plugin.js
-    renderMap() function f.e.
-
-    const renderMap = (member) => ({
-        ...member,
-        DemoWidget: {
-            component: DemoWidget
-        }
-    });
--->
+<?php
+/**
+ *   The value of type has to be the identical to what is used in WidgetFactory.component.plugin.js
+ *   renderMap() function f.e.
+ *
+ *   const renderMap = (member) => ({
+ *       ...member,
+ *       DemoWidget: {
+ *           component: DemoWidget
+ *       }
+ *   });
+ *
+ *   Please note that widget attributes with underscore (_) in the name like product_id
+ *   Will be transformed to camel case e.g. productUrl in te ScandiPWA components
+ */
+?>
 <widget type="DemoWidget"
         image="<?= $escaper->escapeHtml($block->getImage()) ?>"
         title="<?= $escaper->escapeHtml($block->getTitle()) ?>"
         wysiwyg="<?= $escaper->escapeHtml($block->getWysiwyg()) ?>"
         color="<?= $escaper->escapeHtml($block->getColor()) ?>"
         link="<?= $escaper->escapeHtml($block->getLink()) ?>"
-        product="<?= $escaper->escapeHtml($block->getProductUrl()) ?>"
-        category="<?= $escaper->escapeHtml($block->getCategoryUrl()) ?>"
+        product_url="<?= $escaper->escapeHtml($block->getProductUrl()) ?>"
+        category_url="<?= $escaper->escapeHtml($block->getCategoryUrl()) ?>"
         date="<?= $escaper->escapeHtml($block->getDate()) ?>"
         phrase="<?= $escaper->escapeHtml($block->getPhrase()) ?>"
+        slider_id="<?= $escaper->escapeHtml($block->getSliderId()) ?>"
 ></widget>
-<!--
-    Please use full closing tags to all widget templates (*.phtml files).
-    If we have the self-closing tags like <widget type="DemoWidget"/>
-    the Scandipwa parser will not work as expected. So, please use
-    <widget type="MyWidget"></widget> instead.
--->
+<?php
+/**
+ *   Please use full closing tags to all widget templates (*.phtml files).
+ *   If we have the self-closing tags like <widget type="DemoWidget"/>
+ *   the Scandipwa parser will not work as expected. So, please use
+ *   <widget type="DemoWidget"></widget> instead.
+ */
+?>

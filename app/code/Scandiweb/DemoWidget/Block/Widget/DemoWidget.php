@@ -22,7 +22,7 @@ use Magento\Framework\View\Element\Template\Context;
 class DemoWidget extends Template implements BlockInterface
 {
     protected $_template = "widget/demo_widget.phtml";
-    protected $_storeManager;
+    protected $storeManager;
     protected $categoryRepository;
     protected $productModel;
     protected $productRepository;
@@ -42,35 +42,49 @@ class DemoWidget extends Template implements BlockInterface
         $this->categoryRepository = $categoryRepository;
     }
 
-    public function getStoreId() {
+    public function getStoreId()
+    {
         return $this->storeManager->getStore()->getId();
     }
 
-    // Here we use a core magic function getProduct(), that returns us a slug that looks like "product/<product_id>".
-    // With the function below, we are subtracting the number after the "/", which corresponds to the product ID
-    function getProductId() {
+    /**
+     * Here we use a core magic function getProduct(), that returns us a slug that looks like "product/<product_id>".
+     * With the function below, we are subtracting the number after the "/", which corresponds to the product ID
+     */
+    public function getProductId()
+    {
         $product = $this->getProduct();
         return substr(strrchr($product, '/'), 1);
     }
 
-    // Here we use a core magic function getCategory(), that returns us a slug that looks like "category/<category_id>".
-    // With the function below, we are subtracting the number after the "/", which corresponds to the category ID
-    function getCategoryId() {
+    /**
+     * Here we use a core magic function getCategory(), that returns us a slug that looks like "category/<category_id>".
+     * With the function below, we are subtracting the number after the "/", which corresponds to the category ID
+     */
+    public function getCategoryId()
+    {
         $category = $this->getCategory();
         return substr(strrchr($category, '/'), 1);
     }
 
-    function getCategoryUrl(){
+    /**
+     * We will use this function in template to process data from widget and get the category url
+     */
+    public function getCategoryUrl()
+    {
         $id = $this->getCategoryId();
         $category = $this->categoryRepository->get($id, $this->getStoreId());
         return $category->getUrl();
     }
 
-    function getProductUrl() {
+    /**
+     * We will use this function in template to process data from widget and get the product url
+     */
+    public function getProductUrl()
+    {
         $productId = (int)$this->getProductId();
         $storeId = $this->getStoreId();
         $product = $this->productRepository->getById($productId, false, $storeId);
         return $product->setStoreId($storeId)->getUrlModel()->getUrlInStore($product, ['_escape' => true]);
     }
 }
-
