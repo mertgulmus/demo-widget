@@ -36,6 +36,9 @@
                     </data>
                 </block>
             </parameter>
+            <!-- To prevent any html content from this field breaking the widget the content will be
+                 base64 encoded. It is decoded in the template demo_widget.phtml
+            -->
             <parameter name="wysiwyg" xsi:type="block" required="true" visible="true" sort_order="40">
                 <label>WYSIWYG Content</label>
                 <block class="Scandiweb\DemoWidget\Block\Adminhtml\Widget\Editor"/>

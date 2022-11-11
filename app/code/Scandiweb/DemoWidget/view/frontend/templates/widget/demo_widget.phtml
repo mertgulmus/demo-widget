@@ -30,7 +30,7 @@
 <widget type="DemoWidget"
         image="<?= $escaper->escapeHtml($block->getImage()) ?>"
         title="<?= $escaper->escapeHtml($block->getTitle()) ?>"
-        wysiwyg="<?= $escaper->escapeHtml($block->getWysiwyg()) ?>"
+        wysiwyg="<?= $escaper->escapeHtml(base64_decode($block->getWysiwyg())) ?>"
         color="<?= $escaper->escapeHtml($block->getColor()) ?>"
         link="<?= $escaper->escapeHtml($block->getLink()) ?>"
         product_url="<?= $escaper->escapeHtml($block->getProductUrl()) ?>"

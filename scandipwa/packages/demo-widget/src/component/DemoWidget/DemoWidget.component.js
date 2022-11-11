@@ -65,6 +65,7 @@ export class DemoWidgetComponent extends PureComponent {
 
     renderWysiwyg() {
         const { content } = this.props;
+
         return <Html content={ content } />;
     }
 

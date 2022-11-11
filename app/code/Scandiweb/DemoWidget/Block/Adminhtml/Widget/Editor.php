@@ -61,9 +61,12 @@ class Editor extends Template
      */
     public function prepareElementHtml(AbstractElement $element)
     {
+        $data = $element->getData();
+        $data["value"] = base64_decode($data["value"]);
+
         $editor = $this->elementFactory->create(
             'editor',
-            ['data' => $element->getData()]
+            ['data' => $data]
         )
             ->setLabel('')
             ->setForm($element->getForm())
@@ -84,7 +87,20 @@ class Editor extends Template
         }
 
         $elementHtml = $editor->getElementHtml();
-        $editedHtml = str_replace('"', "'", $elementHtml);
+        $editedHtml = $elementHtml . '
+            <script type="text/javascript">
+                const saveButton = document.querySelector(".add-widget")
+                const fields = document.querySelectorAll("textarea.textareawidget-option")
+
+                saveButton.onclick = ("click", event => {
+                    fields.forEach(field => {
+                        field.value = btoa(field.value)
+                        field.innerHTML = field.value
+                    })
+                    wWidget.insertWidget()
+                });
+            </script>
+        ';
 
         $element->setData('after_element_html', $editedHtml);
         $element->setValue('');
