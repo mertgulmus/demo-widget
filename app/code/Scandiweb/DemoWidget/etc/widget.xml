@@ -104,6 +104,10 @@
             <!-- Slider ID, Slider content should be loaded from ScandiPWA
                  For this field to work Scandiweb_Slider module has to be installed.
                  In ScandiPWA this attribute will be in 'sliderId' prop
+
+                 Slider Backend is implemented in 'scandipwa/slider' module that has to be installed
+                 for this to work. The module will be located in your 'vendor' folder.
+                 If it is not installed already, to install it run `composer require scandipwa/slider`
             -->
             <parameter name="slider_id" xsi:type="block" visible="true" required="true" sort_order="120">
                 <label translate="true">Slider</label>
