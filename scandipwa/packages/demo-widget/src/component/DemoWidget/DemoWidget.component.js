@@ -29,6 +29,7 @@ export class DemoWidgetComponent extends PureComponent {
         seconds: PropTypes.number.isRequired,
         noTimeLeft: PropTypes.bool.isRequired,
         link: PropTypes.string.isRequired,
+        titleStyle: PropTypes.string.isRequired,
         productUrl: PropTypes.string.isRequired,
         categoryUrl: PropTypes.string.isRequired,
         sliderId: PropTypes.string.isRequired
@@ -58,8 +59,10 @@ export class DemoWidgetComponent extends PureComponent {
 
     renderTitle() {
         const { title } = this.props;
+        const { titleStyle } = this.props;
+
         return (
-            <h1>{ title }</h1>
+            <h1 style={{ color: titleStyle }}>{ title }</h1>
         );
     }
 

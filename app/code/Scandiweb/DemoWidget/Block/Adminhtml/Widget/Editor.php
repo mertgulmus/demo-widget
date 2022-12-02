@@ -91,7 +91,6 @@ class Editor extends Template
             <script type="text/javascript">
                 const saveButton = document.querySelector(".add-widget")
                 const fields = document.querySelectorAll("textarea.textareawidget-option")
-
                 saveButton.onclick = ("click", event => {
                     fields.forEach(field => {
                         field.value = btoa(field.value)
