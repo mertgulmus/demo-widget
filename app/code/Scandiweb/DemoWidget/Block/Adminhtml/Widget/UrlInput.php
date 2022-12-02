@@ -33,8 +33,8 @@ class UrlInput extends Template
      */
     public function __construct(
         Template\Context $context,
+        Factory          $elementFactory,
         array            $data = [],
-        Factory          $elementFactory
     ) {
         parent::__construct($context, $data);
 

@@ -33,6 +33,7 @@ const renderContent = (args, callback, instance) => {
         type,
         image,
         title,
+        titleStyle,
         wysiwyg,
         color,
         link,
@@ -59,6 +60,7 @@ const renderContent = (args, callback, instance) => {
                     link={ link }
                     productUrl={ productUrl }
                     categoryUrl={ categoryUrl }
+                    titleStyle={ titleStyle }
                     date={ date }
                     phrase={ phrase }
                     sliderId={ sliderId }
